@@ -124,7 +124,7 @@ if __name__ == "__main__":
 				command=equalpress, height=1, width=4)
 	equal.grid(row=5, column=2)
 
-	clear = Button(gui, text='Clear', fg='white', bg='black',
+	clear = Button(gui, text='Clear', fg='red', bg='black',
 				command=clear, height=1, width=4)
 	clear.grid(row=5, column='1')
 
