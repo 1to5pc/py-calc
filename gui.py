@@ -133,11 +133,3 @@ if __name__ == "__main__":
 	Decimal.grid(row=6, column=0)
 	# start the GUI
 	gui.mainloop()
-def add(x, y):
-    return x + y
-def subtract(x, y):
-    return x - y
-def multiply(x, y):
-    return x * y
-def divide(x, y):
-    return x / y
