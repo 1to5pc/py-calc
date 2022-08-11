@@ -1,4 +1,3 @@
-import time
 def add(x, y):
     return x + y
 def subtract(x, y):
@@ -36,10 +35,10 @@ while True:
         next_calculation = input("Let's do next calculation? (Y/n): ")
         if next_calculation == "n":
           break
-        elif next_calculation == "":
-          break
-        else:
-            break
+        #elif next_calculation == "":
+          #break
+        #else:
+            #break
 
     else:
         print("Invalid Input")
