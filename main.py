@@ -1,3 +1,3 @@
 no1 = input("no1", )
 no2 = input("no2", )
-print(no1)
+total = no1 + no2
