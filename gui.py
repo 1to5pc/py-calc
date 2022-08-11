@@ -42,7 +42,7 @@ if __name__ == "__main__":
 	gui.configure(background="black")
 
 	# set the title of GUI window
-	gui.title("Simple Calculator")
+	gui.title("Python GUI Calc")
 
 	# set the configuration of GUI window
 	gui.geometry("305x180")
