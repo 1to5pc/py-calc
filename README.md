@@ -1,5 +1,5 @@
-# py-calc
-A simple python calculator   
+# py-calc   
+### A simple python calculator   
 ---
 Available in:   
 - [x] CLI
