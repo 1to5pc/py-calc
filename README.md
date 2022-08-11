@@ -1,3 +1,7 @@
 # py-calc
 A simple python calculator   
-> lol
+---
+Available in:   
+- [x] CLI
+- [x] Dark GUI
+- [x] Light GUI   
