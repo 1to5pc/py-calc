@@ -36,7 +36,7 @@ while True:
         next_calculation = input("Let's do next calculation? (Y/n): ")
         if next_calculation == "n":
           break
-        elif next_calculation = ""
+        elif next_calculation == ""
           break
 
     else:
