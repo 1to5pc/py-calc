@@ -1,4 +1,4 @@
-no1 = input("no1", )
-no2 = input("no2", )
+no1 = int(input("no1", ))
+no2 = int(input("no2", ))
 total = no1 + no2
 print(total)
