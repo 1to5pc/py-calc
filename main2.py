@@ -38,6 +38,8 @@ while True:
           break
         elif next_calculation == "":
           break
+        else:
+            break
 
     else:
         print("Invalid Input")
