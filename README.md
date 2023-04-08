@@ -5,7 +5,7 @@ Available in:
 - [x] Dark GUI
 - [x] Light GUI   
 ## Installation   
-[Install python](https://github.com/1to5pc/py-calc#installing-python-skip-if-you-already-have-python)   
+[Install python](c#installing-python-skip-if-you-already-have-python)   
 Download the version of py-calc you want from [releases](https://github.com/1to5pc/py-calc/releases)   
 Run the .py file after it finishes downloading   
 
