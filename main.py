@@ -15,7 +15,7 @@ print("3.Multiply")
 print("4.Divide")
 
 while True:
-    choice = input("Enter choice(1/2/3/4): ")
+    choice = input("Enter choice (1/2/3/4): ")
     if choice in ('1', '2', '3', '4'):
         num1 = int(input("Enter first number: "))
         num2 = int(input("Enter second number: "))
@@ -32,7 +32,7 @@ while True:
         elif choice == '4':
             print(num1, "/", num2, "=", divide(num1, num2))
 
-        next_calculation = input("Let's do next calculation? (Y/n): ")
+        next_calculation = input("Would you like to do another calculation? (Y/n): ")
         if next_calculation == "n":
           break
         #elif next_calculation == "":
