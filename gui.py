@@ -1,135 +1,72 @@
 import tkinter as tk
 from tkinter import *
+
+# Global variable to store the expression
 expression = ""
+
+# Function to handle button press events
 def press(num):
-	global expression
-	expression = expression + str(num)
+    global expression
+    expression = expression + str(num)
+    equation.set(expression)
 
-	equation.set(expression)
-
-
-
+# Function to evaluate the expression and display the result
 def equalpress():
+    try:
+        global expression
+        total = str(eval(expression))
+        equation.set(total)
+        expression = ""
+    except:
+        equation.set(" Error ")
+        expression = ""
 
-	try:
-
-		global expression
-
-		total = str(eval(expression))
-
-		equation.set(total)
-
-		expression = ""
-
-	except:
-
-		equation.set(" error ")
-		expression = ""
-
-
+# Function to clear the expression
 def clear():
-	global expression
-	expression = ""
-	equation.set("")
+    global expression
+    expression = ""
+    equation.set("")
 
-
-# Driver code
+# Main function
 if __name__ == "__main__":
-	# create a GUI window
-	gui = Tk()
+    # Create a GUI window
+    gui = Tk()
+    gui.title("Python GUI Calculator")
 
-	# set the background colour of GUI window
-	gui.configure(background="black")
+    # Set the configuration of GUI window
+    gui.geometry("305x250")
+    gui.configure(background="black")
 
-	# set the title of GUI window
-	gui.title("Python GUI Calc")
+    # Create a StringVar to store the expression
+    equation = StringVar()
 
-	# set the configuration of GUI window
-	gui.geometry("305x180")
+    # Create an Entry widget to display the expression
+    expression_field = Entry(gui, textvariable=equation, font=("Arial", 18), bd=10, insertwidth=3, width=14, bg="white", justify="right")
+    expression_field.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
-	# StringVar() is the variable class
-	# we create an instance of this class
-	equation = StringVar()
+    # Define button dimensions and styles
+    button_style = {"fg": "white", "bg": "black", "font": ("Arial", 14), "height": 2, "width": 7, "bd": 5}
 
-	# create the text entry box for
-	# showing the expression .
-	expression_field = Entry(gui, textvariable=equation)
+    # Create buttons for digits and operators
+    buttons = [
+        ("7", 1, 0), ("8", 1, 1), ("9", 1, 2), ("/", 1, 3),
+        ("4", 2, 0), ("5", 2, 1), ("6", 2, 2), ("*", 2, 3),
+        ("1", 3, 0), ("2", 3, 1), ("3", 3, 2), ("-", 3, 3),
+        ("0", 4, 0), (".", 4, 1), ("=", 4, 2), ("+", 4, 3)
+    ]
 
-	# grid method is used for placing
-	# the widgets at respective positions
-	# in table like structure .
-	expression_field.grid(columnspan=4, ipadx=70)
+    # Create buttons and attach press function
+    for (text, row, col) in buttons:
+        btn = Button(gui, text=text, command=lambda t=text: press(t), **button_style)
+        btn.grid(row=row, column=col, padx=5, pady=5)
 
-	# create a Buttons and place at a particular
-	# location inside the root window .
-	# when user press the button, the command or
-	# function affiliated to that button is executed .
-	button1 = Button(gui, text=' 1 ', fg='white', bg='black',
-					command=lambda: press(1), height=1, width=4)
-	button1.grid(row=2, column=0)
+    # Create Clear button
+    clear_button = Button(gui, text="Clear", command=clear, **button_style)
+    clear_button.grid(row=5, column=0, columnspan=2, padx=5, pady=5)
 
-	button2 = Button(gui, text=' 2 ', fg='white', bg='black',
-					command=lambda: press(2), height=1, width=4)
-	button2.grid(row=2, column=1)
+    # Create Equal button
+    equal_button = Button(gui, text="=", command=equalpress, **button_style)
+    equal_button.grid(row=5, column=2, columnspan=2, padx=5, pady=5)
 
-	button3 = Button(gui, text=' 3 ', fg='white', bg='black',
-					command=lambda: press(3), height=1, width=4)
-	button3.grid(row=2, column=2)
-
-	button4 = Button(gui, text=' 4 ', fg='white', bg='black',
-					command=lambda: press(4), height=1, width=4)
-	button4.grid(row=3, column=0)
-
-	button5 = Button(gui, text=' 5 ', fg='white', bg='black',
-					command=lambda: press(5), height=1, width=4)
-	button5.grid(row=3, column=1)
-
-	button6 = Button(gui, text=' 6 ', fg='white', bg='black',
-					command=lambda: press(6), height=1, width=4)
-	button6.grid(row=3, column=2)
-
-	button7 = Button(gui, text=' 7 ', fg='white', bg='black',
-					command=lambda: press(7), height=1, width=4)
-	button7.grid(row=4, column=0)
-
-	button8 = Button(gui, text=' 8 ', fg='white', bg='black',
-					command=lambda: press(8), height=1, width=4)
-	button8.grid(row=4, column=1)
-
-	button9 = Button(gui, text=' 9 ', fg='white', bg='black',
-					command=lambda: press(9), height=1, width=4)
-	button9.grid(row=4, column=2)
-
-	button0 = Button(gui, text=' 0 ', fg='white', bg='black',
-					command=lambda: press(0), height=1, width=4)
-	button0.grid(row=5, column=0)
-
-	plus = Button(gui, text=' + ', fg='white', bg='black',
-				command=lambda: press("+"), height=1, width=4)
-	plus.grid(row=2, column=3)
-
-	minus = Button(gui, text=' - ', fg='white', bg='black',
-				command=lambda: press("-"), height=1, width=4)
-	minus.grid(row=3, column=3)
-
-	multiply = Button(gui, text=' * ', fg='white', bg='black',
-					command=lambda: press("*"), height=1, width=4)
-	multiply.grid(row=4, column=3)
-
-	divide = Button(gui, text=' / ', fg='white', bg='black',
-					command=lambda: press("/"), height=1, width=4)
-	divide.grid(row=5, column=3)
-
-	equal = Button(gui, text=' = ', fg='white', bg='black',
-				command=equalpress, height=1, width=4)
-	equal.grid(row=5, column=2)
-
-	clear = Button(gui, text='Clear', fg='red', bg='black',
-				command=clear, height=1, width=4)
-	clear.grid(row=5, column='1')
-
-	Decimal= Button(gui, text='.', fg='white', bg='black',
-					command=lambda: press('.'), height=1, width=4)
-	Decimal.grid(row=6, column=0)
-	# start the GUI
-	gui.mainloop()
+    # Start the GUI event loop
+    gui.mainloop()
